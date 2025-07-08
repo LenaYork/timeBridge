@@ -3,6 +3,8 @@ export const timeZones = [
   'Europe/Berlin',
   'Europe/Minsk',
   'America/New_York',
-  'Asia/Tokyo'
+  'America/Toronto',
+  'Asia/Tokyo',
+  'Australia/Sydney'
   // Добавьте другие по необходимости
 ]
