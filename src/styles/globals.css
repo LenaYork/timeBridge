@@ -29,11 +29,20 @@ body {
 
 .add-button {
   padding: 8px 16px;
-  background: #6200ee;
+  background: #9149f8;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.add-button:hover, .add-button-modal:hover {
+  background-color: #6720cc;
+}
+
+.add-button:focus, .add-button-modal:focus {
+  outline: 1px solid #6720cc;
 }
 
 /* Модальное окно */
@@ -79,17 +88,20 @@ body {
   border-radius: 4px;
 }
 
-.add-btn {
+.add-button-modal {
   padding: 8px 16px;
-  background: #6200ee;
+  background: #9149f8;
   color: white;
   border: none;
   border-radius: 4px;
+  transition: background-color 0.5s;
 }
 
 .clocks-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  column-gap: 15px;
+  gap: 15px;
+  max-width: 95vw;
+  flex-wrap: wrap;
 }
