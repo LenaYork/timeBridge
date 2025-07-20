@@ -13,9 +13,8 @@ function App() {
   ])
   const [clockToRemove, setClockToRemove] = useState<string | null>(null)
 
-  const handleAddTimeZone = (timeZone: string) => {
-    const city = timeZone.split('/')[1] || timeZone
-    setClocks([...clocks, { city, timeZone }])
+  const handleAddTimeZone = (data: { city: string; timeZone: string }) => {
+    setClocks([...clocks, data])
   }
 
   const requestRemoveClock = (timeZone: string) => {
@@ -58,11 +57,12 @@ function App() {
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
         onAdd={handleAddTimeZone}
+        existingTimeZones={clocks.map(clock => clock.timeZone)} // Передаём массив выбранных timeZone
       />
 
       <ConfirmModal
         isOpen={isConfirmModalOpen}
-        message={`Вы уверены, что хотите удалить ${clockToRemove ? clocks.find(c => c.timeZone === clockToRemove)?.city : ''}?`}
+        message={`Вы уверены, что хотите удалить карточку с часовым поясом ${clockToRemove ? clocks.find(c => c.timeZone === clockToRemove)?.city : ''}?`}
         onConfirm={confirmRemoveClock}
         onCancel={() => setIsConfirmModalOpen(false)}
       />
